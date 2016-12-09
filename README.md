@@ -1,0 +1,1 @@
+# simple-fullstack-angular-boilerplate
