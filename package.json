@@ -1,0 +1,27 @@
+{
+  "name": "simple-fullstack-angular-boilerplate",
+  "version": "0.0.1",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "nodemon index.js",
+    "test": "karma start",
+    "postinstall": "bower install"
+  },
+  "engines": {
+    "node": "5.5.0"
+  },
+  "dependencies": {
+    "body-parser": "^1.4.3",
+    "bower": "*",
+    "express": "^4.4.5"
+  },
+  "devDependencies": {
+    "chai": "*",
+    "karma": "^1.1.1",
+    "karma-chai": "^0.1.0",
+    "karma-chrome-launcher": "^1.0.1",
+    "karma-mocha": "^1.1.1",
+    "mocha": "*",
+    "nodemon": "*"
+  }
+}
