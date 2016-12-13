@@ -8,6 +8,20 @@
 </head>
 <body ng-controller="AppController">
 <h1>{{ message }}</h1>
+<table>
+  <thead>
+    <tr>
+      <th></th>
+      <th ng-repeat="course in courses">{{ course.title }}</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr ng-repeat="student in students">
+      <td>{{ student.name }}</td>
+      <td ng-repeat="course in courses"></td>
+    </tr>
+  </tbody>
+</table>
 <script type="text/javascript" src="app/services.js"></script>
 <script type="text/javascript" src="app/app.js"></script>
 </body>
