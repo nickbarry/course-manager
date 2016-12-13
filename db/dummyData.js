@@ -6,26 +6,32 @@ const courses = [
   {
     title: 'Number Theory',
     id: 1,
+    enrollment: 0,
   },
   {
     title: 'Advanced Javascript',
     id: 2,
+    enrollment: 0,
   },
   {
     title: 'Calligraphy',
     id: 3,
+    enrollment: 0,
   },
   {
     title: 'Behavioral Economics',
     id: 4,
+    enrollment: 0,
   },
   {
     title: 'Startups and Entrepreneurialism',
     id: 5,
+    enrollment: 0,
   },
   {
     title: 'Algorithms and Data Structures',
     id: 6,
+    enrollment: 0,
   },
 ];
 
@@ -153,6 +159,8 @@ const students = [
 ];
 
 // Randomly assign some students to some courses
+// I've omitted testing on this code since this code isn't code I'd actually use in a real app; it's meant to substitute
+// for having a db
 const courses_students = [];
 let id = 1;
 const randIntOneThroughN = (n) => Math.floor(Math.random() * n) + 1;
@@ -161,13 +169,17 @@ students.forEach(student => {
   const coursesUsed = {};
   for (let i = 0; i < numberOfCourses; i++) {
     const courseId = randIntOneThroughN(6);
-    if (!coursesUsed[courseId]) { // Don't record the same course/student intersection twice
+    const course = courses.filter(course => course.id === courseId)[0];
+
+    // Don't record the same course/student intersection twice, and don't record if the course is at capacity
+    if (!coursesUsed[courseId] || course.enrollment >= 20) {
       coursesUsed[courseId] = true;
       courses_students.push({
         id: id++,
         course_id: courseId,
         student_id: student.id,
       });
+      course.enrollment++; // Increment the enrollment
     }
   }
 });
